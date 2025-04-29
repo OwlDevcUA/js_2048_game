@@ -252,10 +252,6 @@ class Game {
     return this.score;
   }
 
-  getState() {}
-
-  getStatus() {}
-
   start() {
     this.state = 'playing';
     this.score = 0;

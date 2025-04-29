@@ -70,6 +70,12 @@ document.addEventListener('keydown', (e) => {
     game.moveVertically(true, false);
     game.combineVertically(true, false);
     game.moveVertically(true, false);
+    /* game.board = [
+      [2, 4, 2, 4],
+      [4, 2, 4, 2],
+      [2, 4, 2, 4],
+      [4, 2, 4, 2]
+    ]; */
     game.generate();
     game.updateBoard(rows);
     updateScore();
