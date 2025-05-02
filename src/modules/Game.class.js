@@ -58,6 +58,18 @@ class Game {
     }
   }
 
+  checkForChanges(board1, board2) {
+    for (let row = 0; row < board1.length; row++) {
+      for (let col = 0; col < board1[row].length; col++) {
+        if (board1[row][col] !== board2[row][col]) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   checkForLose() {
     const board = this.board;
 

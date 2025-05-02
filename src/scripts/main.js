@@ -67,16 +67,15 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowUp') {
+    const oldBoard = structuredClone(game.board);
+
     game.moveVertically(true, false);
     game.combineVertically(true, false);
     game.moveVertically(true, false);
-    /* game.board = [
-      [2, 4, 2, 4],
-      [4, 2, 4, 2],
-      [2, 4, 2, 4],
-      [4, 2, 4, 2]
-    ]; */
-    game.generate();
+
+    if (game.checkForChanges(oldBoard, game.board)) {
+      game.generate();
+    }
     game.updateBoard(rows);
     updateScore();
     addColors();
@@ -85,10 +84,15 @@ document.addEventListener('keydown', (e) => {
   }
 
   if (e.key === 'ArrowDown') {
+    const oldBoard = structuredClone(game.board);
+
     game.moveVertically(false, true);
     game.combineVertically(false, true);
     game.moveVertically(false, true);
-    game.generate();
+
+    if (game.checkForChanges(oldBoard, game.board)) {
+      game.generate();
+    }
     game.updateBoard(rows);
     updateScore();
     addColors();
@@ -97,10 +101,15 @@ document.addEventListener('keydown', (e) => {
   }
 
   if (e.key === 'ArrowLeft') {
+    const oldBoard = structuredClone(game.board);
+
     game.moveHorizontally(true, false);
     game.combineHorizontally(true, false);
     game.moveHorizontally(true, false);
-    game.generate();
+
+    if (game.checkForChanges(oldBoard, game.board)) {
+      game.generate();
+    }
     game.updateBoard(rows);
     updateScore();
     addColors();
@@ -109,10 +118,15 @@ document.addEventListener('keydown', (e) => {
   }
 
   if (e.key === 'ArrowRight') {
+    const oldBoard = structuredClone(game.board);
+
     game.moveHorizontally(false, true);
     game.combineHorizontally(false, true);
     game.moveHorizontally(false, true);
-    game.generate();
+
+    if (game.checkForChanges(oldBoard, game.board)) {
+      game.generate();
+    }
     game.updateBoard(rows);
     updateScore();
     addColors();
